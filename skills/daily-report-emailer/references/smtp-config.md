@@ -73,6 +73,21 @@ powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\s
   -Body "请查看最新版本。"
 ```
 
+## 快捷重发上一封
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\resend-last-email.ps1 `
+  -Subject "更新版本" `
+  -Body "请查看最新版本。"
+```
+
+若要连上次的主题和正文也一并沿用：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\resend-last-email.ps1 `
+  -KeepLastContent
+```
+
 ## 显式覆盖配置
 
 如果不希望使用环境变量，可以显式传入完整 SMTP 参数：

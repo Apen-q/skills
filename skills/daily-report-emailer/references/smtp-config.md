@@ -11,6 +11,8 @@
 - `SMTP_FROM`: 发件人邮箱，默认回退到 `SMTP_USERNAME`
 - `SMTP_USE_SSL`: 是否启用 SSL，支持 `true` / `false`
 
+脚本还支持通过 `AttachmentPaths` 发送本地附件，适合 PDF、图片或其他文件。发送前需确保路径真实存在。
+
 当前环境下已验证可用的网易 163 组合：
 
 - `SMTP_HOST=smtp.163.com`
@@ -31,6 +33,16 @@ powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\s
   -SmtpHost "smtp.163.com" `
   -Port 25 `
   -UseSsl "false"
+```
+
+## 发送 PDF 附件
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\send-report-email.ps1 `
+  -To "target@example.com" `
+  -Subject "日报 PDF" `
+  -Body "请查收附件。" `
+  -AttachmentPaths "E:\docs\report.pdf"
 ```
 
 ## 显式覆盖配置

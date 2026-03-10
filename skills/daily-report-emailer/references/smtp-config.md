@@ -88,6 +88,19 @@ powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\r
   -KeepLastContent
 ```
 
+## 查看最近发送记录
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\show-last-email.ps1
+```
+
+查看最近 5 条：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\skills\daily-report-emailer\scripts\show-last-email.ps1 `
+  -Limit 5
+```
+
 ## 显式覆盖配置
 
 如果不希望使用环境变量，可以显式传入完整 SMTP 参数：
